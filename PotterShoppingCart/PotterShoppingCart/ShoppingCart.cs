@@ -21,5 +21,10 @@ namespace BookStore
         {
             _bookCount.Add(bookCount);
         }
+
+        public void AddBookCounts(List<BookCount> bookCounts)
+        {
+            _bookCount.AddRange(bookCounts);
+        }
     }
 }
