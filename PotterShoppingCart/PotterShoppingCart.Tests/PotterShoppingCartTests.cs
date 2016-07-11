@@ -11,7 +11,7 @@ namespace PotterShoppingCart.Tests
     public class PotterShoppingCartTests
     {
         [TestMethod()]
-        public void CalculatePriceTest()
+        public void CalculatePriceTest_Buy_Episode_1_Price_100()
         {
             //arrange
             var shoppingCart = new PotterShoppingCart();
