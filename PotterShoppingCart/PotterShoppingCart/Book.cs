@@ -1,4 +1,4 @@
-﻿namespace PotterShoppingCart
+﻿namespace BookStore
 {
     public class Book
     {
