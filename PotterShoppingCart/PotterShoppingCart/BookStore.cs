@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace BookStore
 {
     public class BookStore
     {
-        public Dictionary<int,double> Discount { get; set; }
+        private Dictionary<int, double> Discount { get; set; }
 
         public BookStore()
         {
@@ -17,14 +15,19 @@ namespace BookStore
             Discount[3] = 0.9;
             Discount[4] = 0.8;
             Discount[5] = 0.75;
-
         }
 
         public double CalculatePrice(ShoppingCart shoppingCart)
         {
-            int episodeCount = shoppingCart.BookCount.Select((x) => x.Book.Episode).Distinct().Count();
-            return shoppingCart.BookCount.Sum((x) => x.Book.Price * x.Count) * Discount[episodeCount];
+            double price = 0;
+            int episodeCount = shoppingCart.BookCount.Select(x => x.Book.Episode).Distinct().Count();
+            int maxCount = shoppingCart.BookCount.Select(x => x.Count).Max();
+            for (int i = 1; i <= maxCount; i++)
+            {
+                double discount = Discount[shoppingCart.BookCount.Where(x => x.Count >= i).Count()];
+                price += shoppingCart.BookCount.Where(x => x.Count >= i).Sum(x => x.Book.Price) * discount;
+            }
+            return price;
         }
-
     }
 }

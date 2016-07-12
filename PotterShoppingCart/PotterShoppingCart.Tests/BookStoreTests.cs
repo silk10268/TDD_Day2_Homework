@@ -113,8 +113,7 @@ namespace BookStore.Tests
                 {
                 new BookCount(new Book { Name = "Potter", Episode = 1, Price = 100 }, 1),
                 new BookCount(new Book { Name = "Potter", Episode = 2, Price = 100 }, 1),
-                new BookCount(new Book { Name = "Potter", Episode = 3, Price = 100 }, 1),
-                new BookCount(new Book { Name = "Potter", Episode = 3, Price = 100 }, 1)
+                new BookCount(new Book { Name = "Potter", Episode = 3, Price = 100 }, 2)
                     });
 
             //act
