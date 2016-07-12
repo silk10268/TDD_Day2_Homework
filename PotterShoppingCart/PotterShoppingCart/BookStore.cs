@@ -15,6 +15,7 @@ namespace BookStore
             Discount[1] = 1.0;
             Discount[2] = 0.95;
             Discount[3] = 0.9;
+            Discount[4] = 0.8;
 
         }
 

@@ -77,7 +77,7 @@ namespace BookStore.Tests
 
             //act
             var actual = bookStore.CalculatePrice(shoppingCart);
-            var expected = 270;
+            var expected = 320;
             //assert
             Assert.AreEqual(expected, actual);
         }
