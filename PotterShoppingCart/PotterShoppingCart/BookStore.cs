@@ -14,6 +14,7 @@ namespace BookStore
             Discount = new Dictionary<int, double> { };
             Discount[1] = 1.0;
             Discount[2] = 0.95;
+            Discount[3] = 0.9;
 
         }
 
