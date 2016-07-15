@@ -19,15 +19,17 @@ namespace BookStore
 
         public double CalculatePrice(ShoppingCart shoppingCart)
         {
-            double price = 0;
-            int episodeCount = shoppingCart.BookCount.Select(x => x.Book.Episode).Distinct().Count();
+            double totalPrice = 0;
             int maxCount = shoppingCart.BookCount.Select(x => x.Count).Max();
             for (int i = 1; i <= maxCount; i++)
             {
-                double discount = Discount[shoppingCart.BookCount.Where(x => x.Count >= i).Count()];
-                price += shoppingCart.BookCount.Where(x => x.Count >= i).Sum(x => x.Book.Price) * discount;
+                int episodeCount = shoppingCart.BookCount.Where(x => x.Count >= i).Count();
+                double discount = Discount[episodeCount];
+                double originPrice = shoppingCart.BookCount.Where(x => x.Count >= i).Sum(x => x.Book.Price);
+                double discountPrice = originPrice * discount;
+                totalPrice += discountPrice;
             }
-            return price;
+            return totalPrice;
         }
     }
 }
